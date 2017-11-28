@@ -63,6 +63,9 @@ for i in range(0,20):
                   headers={'User-Agent': 'Mozilla/5.0'})
         webpage = urlopen(req).read()
         soup = BeautifulSoup(webpage)
+
+        # News artcile is contained in a div tag
+        # .. with id defined by "content-body"
         txt = soup.find_all("div", {"id":re.compile("content-body")})
         soup = BeautifulSoup(str(txt))
         news_article.append(soup.get_text())
