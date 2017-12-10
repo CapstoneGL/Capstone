@@ -86,7 +86,7 @@ for i in range(0,len(link_file)):
         error_ids.append(i)
 
 
-# Append results
+# Append results ......
 final_res = pd.DataFrame({"date": link_file["news_date"],
                           "news_link": link_file["links"],
                           "article_txt": news_article})
