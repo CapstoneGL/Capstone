@@ -20,8 +20,17 @@ with open('stock_prices_dict.pickle', 'wb') as f:
 # Load data (deserialize)
 with open('stock_prices_dict.pickle', 'rb') as f:
     stock_prices_dict = pickle.load(f)
-for key in stock_prices_dict:
+for key,val in stock_prices_dict.items():
     print(key)
+
+# Get stock data for NSE 50 stocks
+nse_50 = pd.read_csv("nse_50.csv")
+nse_50 = nse_50["Symbol"].values
+
+nse_50_stock_data = {k:v for k,v in stock_prices_dict.items() if k in nse_50}
+with open('nse_50_stock_data.pickle', 'wb') as f:
+    pickle.dump(nse_50_stock_data, f, protocol=pickle.HIGHEST_PROTOCOL)
+
 
 
 # Extracting stock prices for Wipro
