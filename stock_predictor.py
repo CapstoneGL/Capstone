@@ -24,6 +24,7 @@ for key,val in stock_prices_dict.items():
     print(key)
 
 # Get stock data for NSE 50 stocks
+# Save the output as a python dictionary
 nse_50 = pd.read_csv("nse_50.csv")
 nse_50 = nse_50["Symbol"].values
 
